@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <audio id="myAudio">
+        <source src="ioz.mp3" type="audio/ogg">
+    </audio>
+
+    <div class="playbox">
+        <button id="button" type="button">Play</button>
+        <input type="range" min="1" max="686" id="slider" value="0">
+        <div id="time">
+            <div>
+                <p id="min">00</p>
+            </div>
+            <div>
+                <p>:</p>
+            </div>
+            <div>
+                <p id="sec">00</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        var audio = document.getElementById("myAudio");
+        button.addEventListener('click', function () {
+            if (button.innerHTML == "Play") {
+                audio.play()
+                button.innerHTML = "Pause"
+            } else if (button.innerHTML == "Pause") {
+                audio.pause()
+                button.innerHTML = "Play"
+            }
+        })
+        audio.addEventListener('timeupdate', function () {
+            if (Math.floor(audio.currentTime) % 60 < 10) {
+                var secs = "0" + Math.floor(audio.currentTime) % 60
+            } else {
+                var secs = parseInt(Math.floor(audio.currentTime) % 60)
+            }
+            if (Math.floor(Math.floor(audio.currentTime) / 60) < 10) {
+                var mins = "0" + Math.floor(Math.floor(audio.currentTime) / 60)
+            } else {
+                var mins = Math.floor(Math.floor(audio.currentTime) / 60)
+            }
+            console.log(secs)
+            sec.innerHTML = secs
+            min.innerHTML = mins
+            slider.value = audio.currentTime
+        });
+        slider.addEventListener('input', function () {
+            console.log(slider.value)
+            audio.currentTime = slider.value
+        })
+    </script>
+
+</body>
+
+</html>

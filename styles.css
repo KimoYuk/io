@@ -1,0 +1,31 @@
+#time {
+    width: 4%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#time>p {
+    text-align: center;
+    vertical-align: middle;
+}
+
+body {
+    margin: auto;
+}
+
+#slider {
+    width: 90%;
+}
+
+#button {
+    width: 6%;
+}
+
+.playbox {
+    margin: auto;
+    margin-top: 100px;
+    width: 90%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
